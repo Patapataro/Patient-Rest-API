@@ -13,8 +13,14 @@ private $dbname;
 private $user;
 private $pass;
 
-
 public function __construct() {
+
+    $this->port = $_ENV['DB_PORT'];
+    $this->host = $_ENV['DB_HOST'];
+    $this->dbname = $_ENV['DB_NAME'];
+
+    $this->user = $_ENV['DB_USER'];
+    $this->pass = $_ENV['DB_PASSWORD'];
 
     $dsn = "mysql:host=$this->host;dbname=$this->dbname;port=$this->port";
 
