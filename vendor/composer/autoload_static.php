@@ -22,6 +22,7 @@ class ComposerStaticInit040a7e4ec26350ea5bb64b319462a007
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpOption\\' => 10,
         ),
@@ -55,6 +56,10 @@ class ComposerStaticInit040a7e4ec26350ea5bb64b319462a007
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Psr\\Cache\\' => 
         array (
@@ -90,6 +95,16 @@ class ComposerStaticInit040a7e4ec26350ea5bb64b319462a007
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -104,6 +119,7 @@ class ComposerStaticInit040a7e4ec26350ea5bb64b319462a007
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit040a7e4ec26350ea5bb64b319462a007::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit040a7e4ec26350ea5bb64b319462a007::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit040a7e4ec26350ea5bb64b319462a007::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit040a7e4ec26350ea5bb64b319462a007::$classMap;
 
         }, null, ClassLoader::class);

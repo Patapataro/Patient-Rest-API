@@ -1,6 +1,7 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "doctrine/dbal": "3.6.0"
+        "doctrine/dbal": "3.6.0",
+        "pimple/pimple": "^3.0"
     }
 }
