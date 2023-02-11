@@ -1,2 +1,6 @@
 <?php
-use App\init;
+use App\Config;
+use App\Src;
+
+new ContainerConfg();
+new init();
