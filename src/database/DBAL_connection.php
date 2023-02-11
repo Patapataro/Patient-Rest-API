@@ -1,4 +1,5 @@
 <?php
+namespace App\database;
 
 use Doctrine\DBAL\DriverManager;
 
