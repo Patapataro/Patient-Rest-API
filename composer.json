@@ -10,7 +10,10 @@
             "App\\": "app/", 
             "App\\Config\\": "app/config/",
             "App\\Src\\": "app/src/",
-            "App\\Database\\": "app/src/databse/",
+            "App\\DAO\\": "app/src/_DAO",
+            "App\\DTO\\": "app/src/_DTO",
+            "App\\Controllers\\": "app/src/controllers",
+            "App\\Database\\": "app/src/database/",
             "App\\Routes\\": "app/src/routes/",
             "App\\Services\\": "app/src/services/"
         }

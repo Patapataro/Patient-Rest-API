@@ -2,6 +2,7 @@
 
 namespace App\Routes;
 use Bramus\Router\Router;
+use App\Controllers\Users;
 
 
 class API {
