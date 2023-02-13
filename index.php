@@ -1,7 +1,6 @@
 <?php
 
 use App\Config\ContainerConfig;
-// use App\Routes\API;
 
 
 // Require composer autoloader
@@ -17,4 +16,7 @@ $container = ContainerConfig::create_container();
 
 //init routes
 $container["routes"];
+// new API($container);
+
+
 

@@ -16,7 +16,10 @@ class DBAlConnection {
             'driver' => $db_driver ?? 'pdo_mysql',
         ];
 
-        return $this->connection = DriverManager::getConnection($connectionParams);
-        
+        $this->connection = DriverManager::getConnection($connectionParams);
+    }
+
+    public function get_connection(){
+        return $this->connection;
     }
 }

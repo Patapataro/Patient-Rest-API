@@ -2,8 +2,7 @@
 namespace App\DTO;
 
 class UserDTO {
-    public $name;
-    public $id;
-    public $NDCs;
-
+    private $name;
+    private $id;
+    private $NDCs;
 }
