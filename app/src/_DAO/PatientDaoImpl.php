@@ -13,7 +13,7 @@ class PatientDaoImpl implements PatientDAO{
 
     public function get_all_patients() {
         $this->query = $this->query
-            ->select('p.MEDREC_ID', 'FIRSTNAME', 'LASTNAME')
+            ->select('p.MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS Name')
             ->from('patient', 'p');
                             
         return $this;
@@ -26,7 +26,7 @@ class PatientDaoImpl implements PatientDAO{
             ->join('p', 'medication', 'm', 'p.MEDREC_ID = m.MEDREC_ID')
             ->where('PRESCRIBED_COUNT > ?')
             ->setParameter(0, $n)
-            ->setMaxResults(30);
+            ->setMaxResults(40);
         return $this;
     }
 
