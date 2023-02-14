@@ -1,4 +1,8 @@
 <?php
+/**
+ * Entry point to the app creates the DI container and 
+ * calls the routesto handle requests.
+ */
 
 use App\Config\ContainerConfig;
 

@@ -1,7 +1,7 @@
 <?php
 /** 
-Load tests in CLI
-./vendor/bin/phpunit --configuration phpunit.xml --testdox 
+* Load tests in CLI
+* ./vendor/bin/phpunit --configuration phpunit.xml --testdox 
 */
 
 // include_once __DIR__.'/../index.php';

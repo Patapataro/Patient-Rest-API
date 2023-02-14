@@ -1,4 +1,9 @@
 <?php declare(strict_types=1);
+
+/**
+ *  Builds the query and exicutes as needed.
+ */
+
 namespace App\DAO;
 use App\DAO\PatientDao;
 

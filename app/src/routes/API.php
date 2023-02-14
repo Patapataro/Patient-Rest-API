@@ -8,13 +8,9 @@ use App\Controllers\Patient;
 class API {
     public function __construct(Router $router, $container)
     {
-        // var_dump($container);
-        // var_dump($container['UserDAO']);
-        // Define routes
-        $router->get('/', function() use ($container){
-            print("Hello");
-        });
-
+        /**
+         * Passes the prescription count to the PatientController 
+         */
         $router->get('/prescribed/{n}', function($n) use ($container){
             $patient = $container['PatientController'];
             $patients = $patient->patient_prescribed_count($n);

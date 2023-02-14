@@ -1,4 +1,8 @@
 <?php
+/**
+ * The DI Container defines how classes should be
+ * called and instantiates them when needed.
+ */
 
 namespace App\Config;
 
@@ -28,13 +32,11 @@ class ContainerConfig {
         $container['router'] = fn($c) => new Router();
         $container['routes'] = fn($c) => new API($c['router'], $c);
 
-        // Patient
+        // DI for Patient
         $container['PatientDaoImpl'] = fn($c) => new PatientDaoImpl($c['database_connection']);
         $container['PatientDTO'] = fn($c) => new PatientDTO($c);
         $container['PatientService'] = fn($c) => new PatientService($c['PatientDaoImpl'], $c['PatientDTO']);
         $container['PatientController'] = fn($c) => new Patient($c);
-
-
 
         return $container;
 
