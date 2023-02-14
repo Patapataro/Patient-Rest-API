@@ -26,7 +26,7 @@ php -S localhost:port
 That's it! 
 Now you can start making requests to the Rest API.
 ```
-http://localhost:port/prescribed/3
+http://localhost:port/prescribed/$N
 ```
 
 
@@ -81,8 +81,8 @@ SELECT DISTINCT patient.MEDREC_ID, CONCAT(FIRSTNAME, ' ', LASTNAME) AS NAME
 	WHERE patient.MEDREC_ID = medication.MEDREC_ID 
 	AND medication.PRESCRIBED_COUNT > 1;
 ```
-The biggest improvement I made was adding a PRESCRIBED_COUNT to the medication table.
-It removed duplicates from the medication table and increased the query by 6X.
+The biggest improvement I made was adding PRESCRIBED_COUNT column to the medication table.
+It describes the number of time a medication has been prescribed and removed duplicates from the medication table. This change increased the query by 6X.
 
 I made MEDREC_ID the primary key for patients and indexed it on allother tables to speed up JOINs 
 between tables. Adding these indexes does increase the size of the database. Testing should done to 
