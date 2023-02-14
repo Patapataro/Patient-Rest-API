@@ -10,19 +10,29 @@ use App\Config\ContainerConfig;
 
 final class InitTest extends TestCase
 {
-    /** @test */
-    public function testContainerIsLoaded()
+    private static $container;
+    private static $db;
+
+    public static function setUpBeforeClass(): void
     {
-        $container = ContainerConfig::create_container();
-        $this->assertTrue($container instanceof container);
-        return $container;
+        self::$container = ContainerConfig::create_container();
+        self::$db = self::$container['database_connection'];
     }
 
-    #[Depends('testContainerIsLoaded')]
-    public function testDatabaseIsConneted($container): void
+    public static function tearDownAfterClass(): void
     {
-        $container['database_connection']->isConnected();
-        $this->assertFalse($container['database_connection']->isConnected());
+        self::$dbh = null;
+    }
+
+
+    public function testContainerIsLoaded(): void
+    {
+        $this->assertTrue(self::$container instanceof container);
+    }
+
+    public function testDatabaseIsConneted(): void
+    {
+        $this->assertFalse(self::$db->isConnected());
     }
 
 }

@@ -10,11 +10,21 @@ include_once __DIR__.'/../vendor/autoload.php';
 
 $classLoader = new \Composer\Autoload\ClassLoader();
 $classLoader->addPsr4("Test\\", "tests/");
+$classLoader->addPsr4("Test\\Users\\", "tests/users/");
+$classLoader->addPsr4("Test\\Database\\", "test/database/");
 $classLoader->register();
 
 // // Load .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__."/..");
 $dotenv->load();
+
+
+$GLOBALS['db_driver'] =  $_ENV['DB_DRIVER'];
+$GLOBALS['db_user'] = $_ENV['DB_USER'];
+$GLOBALS['db_password'] = $_ENV['DB_PASSWORD'];
+$GLOBALS['db_host'] = $_ENV['DB_HOST'];
+$GLOBALS['db_dbname'] = $_ENV['DB_NAME'];
+$GLOBALS['db_port'] = $_ENV['DB_PORT'];
 
 
 
