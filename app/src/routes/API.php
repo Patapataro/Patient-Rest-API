@@ -16,7 +16,7 @@ class API {
         });
 
         $router->get('/users', function() use ($container){
-            $user = $container['UserDAO'];
+            $user = $container['UserDaoImpl'];
             $users = $user->get_all_users();
             var_dump($users);
         });

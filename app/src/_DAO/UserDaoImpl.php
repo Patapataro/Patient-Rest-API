@@ -3,7 +3,8 @@ namespace App\DAO;
 use App\DAO\UserDao;
 
 class UserDaoImpl implements UserDAO{
-    
+    private $connection;
+
     public function __construct($connection) {
         $this->connection = $connection;
     }

@@ -9,7 +9,7 @@ use App\Database\DBAlConnection;
 use Bramus\Router\Router;
 use App\Routes\API;
 
-use App\DAO\UserDAO;
+use App\DAO\UserDaoImpl;
 
 class ContainerConfig {
 
@@ -26,7 +26,7 @@ class ContainerConfig {
         $container['routes'] = fn($c) => new API($c['router'], $c);
 
         // User
-        $container['UserDAO'] = fn($c) => new UserDAO($c['database_connection']);
+        $container['UserDaoImpl'] = fn($c) => new UserDaoImpl($c['database_connection']);
 
         return $container;
 
