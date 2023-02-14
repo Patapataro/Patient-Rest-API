@@ -1,15 +1,17 @@
 Patients table
+    MEDREC_ID convert to INT datat ype
     index MEDREC_ID
     PATIENT_NAME should be split into first and last name
         FIRSTNAME
         LASTNAME
 
 medications table
+    MEDREC_ID convert to INT datat ype
     index MEDREC_ID
     Index NDC
 
     ADD PRESCRIBED_COUNT fill with number of duplicates. Remove duplicate rows.
-    query:
+    querys:
         ALTER TABLE medication ADD COLUMN PRESCRIBED_COUNT INT DEFAULT 0;
 
         UPDATE medication b, 
@@ -29,4 +31,4 @@ medications table
 
 
 diseas table
-    Add ID to column (1st normal form)
+    MEDREC_ID convert to INT datat ype
