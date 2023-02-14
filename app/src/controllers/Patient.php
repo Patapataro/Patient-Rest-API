@@ -13,6 +13,11 @@ class Patient {
 
     public function patient_prescribed_count($count)
     {
-        var_dump($this->UserService->patient_prescribed_count($count));
+        $users = $this->UserService->patient_prescribed_count($count);
+
+        header('Content-type: application/json');
+
+        echo json_encode($users);
+
     }
 }
