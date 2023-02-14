@@ -11,6 +11,7 @@ use App\Routes\API;
 
 use App\DAO\PatientDaoImpl;
 use App\DTO\PatientDTO;
+use App\Service\PatientService;
 use App\Controllers\Patient;
 
 class ContainerConfig {
@@ -30,7 +31,7 @@ class ContainerConfig {
         // Patient
         $container['PatientDaoImpl'] = fn($c) => new PatientDaoImpl($c['database_connection']);
         $container['PatientCTO'] = fn($c) => new PatientDTO();
-        $container['PatientController'] = fn($c) => new Patient($c['PatientDaoImpl'], $c['PatientCTO']);
+        $container['PatientController'] = fn($c) => new PatientService($c['PatientDaoImpl'], $c['PatientCTO']);
 
 
 

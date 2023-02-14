@@ -1,15 +1,16 @@
 <?php
 namespace App\Controllers;
 
-use App\DAO\PatientDaoImpl;
-use App\DTO\PatientDTO;
-
 class Patient {
-    private $PatientDaoImpl;
-    private $PatientDTO;
+    private $container;
 
-    public function Patient()
+    public function __construct($container)
     {
-        print("Patient!!!");
+        $this->container = $container;
+    }
+
+    public function patient_prescribed_count($count)
+    {
+        var_dump($count);
     }
 }

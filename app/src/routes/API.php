@@ -15,9 +15,9 @@ class API {
             print("Hello");
         });
 
-        $router->get('/patient', function() use ($container){
-            $patient = $container['PatientDaoImpl'];
-            $patients = $patient->get_all_patient();
+        $router->get('/prescribed/{$n}', function() use ($container){
+            $patient = $container['PatientController'];
+            $patients = $patient->patient_prescribed_count();
             var_dump($patient);
         });
 
