@@ -19,7 +19,6 @@ class UserDaoImpl implements UserDAO{
             // ->setParameter(0)
             ->setMaxResults(20);
 
-        $userArray = $queryBuilder->execute()->fetchAll();
-
+        return $queryBuilder->execute()->fetchAll();
     }
 }

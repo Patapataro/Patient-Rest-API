@@ -10,6 +10,8 @@ use Bramus\Router\Router;
 use App\Routes\API;
 
 use App\DAO\UserDaoImpl;
+use App\DTO\UserDTO;
+use App\Controllers\User;
 
 class ContainerConfig {
 
@@ -27,6 +29,10 @@ class ContainerConfig {
 
         // User
         $container['UserDaoImpl'] = fn($c) => new UserDaoImpl($c['database_connection']);
+        $container['UserCTO'] = fn($c) => new UserDTO();
+        $container['UserController'] = fn($c) => new User($c['UserDaoImpl'], $c['UserCTO']);
+
+
 
         return $container;
 
