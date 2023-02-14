@@ -8,7 +8,7 @@ class Patient {
     public function __construct($container)
     {
         $this->container = $container;
-        $this->UserService = $this->container['PatientController'];
+        $this->UserService = $this->container['PatientService'];
     }
 
     public function patient_prescribed_count($count)

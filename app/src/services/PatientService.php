@@ -1,5 +1,5 @@
 <?php
-namespace App\Service;
+namespace App\Services;
 
 use App\DAO\PatientDaoImpl;
 use App\DTO\PatientDTO;
@@ -9,7 +9,7 @@ class PatientService {
     private $PatientDaoImpl;
     private $PatientDTO;
     
-    public function __construct(PatientDTO $PatientDaoImpl, PatientDTO $PatientDTO) 
+    public function __construct(PatientDaoImpl $PatientDaoImpl, PatientDTO $PatientDTO) 
     {
         $this->PatientDaoImpl = $PatientDaoImpl;
         $this->PatientDTO = $PatientDTO;
