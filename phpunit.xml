@@ -1,8 +1,3 @@
-!-- 
-Load tests in CLI
-./vendor/bin/phpunit --configuration phpunit.xml --testdox 
--->
-
 <phpunit colors="true" bootstrap="tests/autoload.php">
 <testsuite name="My Application Tests">
     <directory>tests</directory>
