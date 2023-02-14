@@ -18,7 +18,7 @@ class PatientDaoImpl implements PatientDAO{
 
     public function get_all_patients() {
         $this->query = $this->query
-            ->select('p.MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS Name')
+            ->select('DISTINCT p.MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS Name')
             ->from('patient', 'p');
                             
         return $this;

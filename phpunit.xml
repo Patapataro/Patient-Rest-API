@@ -1,6 +1,4 @@
 <phpunit colors="true" bootstrap="tests/autoload.php">
-    <!-- <testsuite name="My Application Tests"> -->
-        <!-- <directory>tests/</directory> -->
     <testsuites>
         <testsuite name="all">
             <directory>tests</directory>
@@ -9,5 +7,4 @@
             <directory>tests/patient</directory>
         </testsuite>
     </testsuites>
-    <!-- </testsuite> -->
 </phpunit>
