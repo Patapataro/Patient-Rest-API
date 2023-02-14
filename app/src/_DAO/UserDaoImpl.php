@@ -17,7 +17,7 @@ class UserDaoImpl implements UserDAO{
             // ->join('p', 'medication', 'm', 'p.MEDREC_ID = m.MEDREC_ID')
             // ->where('PRESCRIBED_COUNT >')
             // ->setParameter(0)
-            ->setMaxResults(20);
+            ->setMaxResults(30);
 
         return $queryBuilder->execute()->fetchAll();
     }

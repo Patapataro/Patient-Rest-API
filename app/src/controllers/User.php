@@ -8,7 +8,7 @@ class User {
     private $UserDaoImpl;
     private $UserDTO;
 
-    public function __construct()
+    public function ()
     {
         print("Users!!!");
     }

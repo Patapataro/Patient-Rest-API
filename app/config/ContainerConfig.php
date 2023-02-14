@@ -4,7 +4,7 @@ namespace App\Config;
 
 use Pimple\Container;
 
-use App\Database\DBAlConnection;
+use App\Database\DoctrineDBAl;
 
 use Bramus\Router\Router;
 use App\Routes\API;
@@ -20,8 +20,8 @@ class ContainerConfig {
         $container = new Container();
 
         // DI for Databse
-        $container['database_connection'] = new DBAlConnection($_ENV['DB_DRIVER'], $_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
-        $container['database_connection'] = $container['database_connection']->get_connection();
+        $container['database_manager'] = new DoctrineDBAl($_ENV['DB_DRIVER'], $_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
+        $container['database_connection'] = $container['database_manager']->get_connection();
 
         // DI for routes
         $container['router'] = fn($c) => new Router();

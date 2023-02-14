@@ -3,7 +3,7 @@ namespace App\Database;
 
 use Doctrine\DBAL\DriverManager;
 
-class DBAlConnection {
+class DoctrineDBAl {
     private $connection;
 
     public function __construct($db_driver, $db_host, $db_name, $username, $password) {
@@ -22,4 +22,5 @@ class DBAlConnection {
     public function get_connection(){
         return $this->connection;
     }
+
 }
