@@ -17,6 +17,8 @@
             "App\\Routes\\": "app/src/routes/",
             "App\\Services\\": "app/src/services/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10"
     }
-
 }
