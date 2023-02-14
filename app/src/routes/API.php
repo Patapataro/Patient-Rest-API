@@ -2,7 +2,7 @@
 
 namespace App\Routes;
 use Bramus\Router\Router;
-use App\Controllers\Users;
+use App\Controllers\Patient;
 
 
 class API {
@@ -15,10 +15,10 @@ class API {
             print("Hello");
         });
 
-        $router->get('/users', function() use ($container){
-            $user = $container['UserDaoImpl'];
-            $users = $user->get_all_users();
-            var_dump($users);
+        $router->get('/patient', function() use ($container){
+            $patient = $container['PatientDaoImpl'];
+            $patients = $patient->get_all_patient();
+            var_dump($patient);
         });
 
         // Run it!

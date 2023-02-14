@@ -1,15 +1,15 @@
 <?php
 namespace App\DAO;
-use App\DAO\UserDao;
+use App\DAO\PatientDao;
 
-class UserDaoImpl implements UserDAO{
+class PatientDaoImpl implements PatientDAO{
     private $connection;
 
     public function __construct($connection) {
         $this->connection = $connection;
     }
 
-    public function get_all_users() {
+    public function get_all_patient() {
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select('MEDREC_ID', 'FIRSTNAME', 'LASTNAME')

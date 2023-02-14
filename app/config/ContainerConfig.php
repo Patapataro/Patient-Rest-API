@@ -9,9 +9,9 @@ use App\Database\DoctrineDBAl;
 use Bramus\Router\Router;
 use App\Routes\API;
 
-use App\DAO\UserDaoImpl;
-use App\DTO\UserDTO;
-use App\Controllers\User;
+use App\DAO\PatientDaoImpl;
+use App\DTO\PatientDTO;
+use App\Controllers\Patient;
 
 class ContainerConfig {
 
@@ -27,10 +27,10 @@ class ContainerConfig {
         $container['router'] = fn($c) => new Router();
         $container['routes'] = fn($c) => new API($c['router'], $c);
 
-        // User
-        $container['UserDaoImpl'] = fn($c) => new UserDaoImpl($c['database_connection']);
-        $container['UserCTO'] = fn($c) => new UserDTO();
-        $container['UserController'] = fn($c) => new User($c['UserDaoImpl'], $c['UserCTO']);
+        // Patient
+        $container['PatientDaoImpl'] = fn($c) => new PatientDaoImpl($c['database_connection']);
+        $container['PatientCTO'] = fn($c) => new PatientDTO();
+        $container['PatientController'] = fn($c) => new Patient($c['PatientDaoImpl'], $c['PatientCTO']);
 
 
 
