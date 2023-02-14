@@ -5,8 +5,8 @@
         <testsuite name="all">
             <directory>tests</directory>
         </testsuite>
-        <testsuite name="users">
-            <directory>tests/users</directory>
+        <testsuite name="patient">
+            <directory>tests/patient</directory>
         </testsuite>
     </testsuites>
     <!-- </testsuite> -->

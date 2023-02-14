@@ -10,7 +10,7 @@ include_once __DIR__.'/../vendor/autoload.php';
 
 $classLoader = new \Composer\Autoload\ClassLoader();
 $classLoader->addPsr4("Test\\", "tests/");
-$classLoader->addPsr4("Test\\Users\\", "tests/users/");
+$classLoader->addPsr4("Test\\Patient\\", "tests/patient/");
 $classLoader->addPsr4("Test\\Database\\", "test/database/");
 $classLoader->register();
 

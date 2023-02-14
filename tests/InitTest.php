@@ -7,7 +7,7 @@ use Pimple\Container;
 use App\Config\ContainerConfig;
 
 
-final class InitTest extends TestCase
+abstract class InitTest extends TestCase
 {
     private static $container;
     private static $db;
