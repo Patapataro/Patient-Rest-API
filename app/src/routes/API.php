@@ -15,10 +15,9 @@ class API {
             print("Hello");
         });
 
-        $router->get('/prescribed/{$n}', function() use ($container){
+        $router->get('/prescribed/{n}', function($n) use ($container){
             $patient = $container['PatientController'];
-            $patients = $patient->patient_prescribed_count();
-            var_dump($patient);
+            $patients = $patient->patient_prescribed_count($n);
         });
 
         // Run it!

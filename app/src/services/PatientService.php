@@ -17,10 +17,11 @@ class PatientService {
 
     public function patient_prescribed_count($count)
     {
-        var_dump($this->PatientDaoImpl
+        $users = $this->PatientDaoImpl
                 ->get_all_patients()
                 ->prescribed_gt_n($count)
-                ->execute_query());
+                ->execute_query();
+        return $users;
     }
 
 }
