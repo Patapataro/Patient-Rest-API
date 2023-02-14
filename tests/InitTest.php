@@ -7,7 +7,6 @@ use Pimple\Container;
 use App\Config\ContainerConfig;
 
 
-
 final class InitTest extends TestCase
 {
     private static $container;
@@ -34,5 +33,4 @@ final class InitTest extends TestCase
     {
         $this->assertFalse(self::$db->isConnected());
     }
-
 }
