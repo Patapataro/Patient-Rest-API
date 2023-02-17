@@ -6,36 +6,104 @@
 
 namespace App\DAO;
 use App\DAO\PatientDao;
+use App\DTO\PatientDTO;
+
 
 class PatientDaoImpl implements PatientDAO{
     private $connection;
-    private $query;
 
     public function __construct($connection) {
         $this->connection = $connection;
-        $this->query = $this->connection->createQueryBuilder();
     }
 
-    public function get_all_patients() {
-        $this->query = $this->query
-            ->select('DISTINCT p.MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS Name')
-            ->from('patient', 'p');
-                            
-        return $this;
+    public function create(PatientDTO $user)
+    {
+
+    }
+
+    public function read(int $id): ?PatientDTO
+    {
+        $query = $this->connection->createQueryBuilder();
+
+        $query = $query
+            ->select('MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS NAME')
+            ->from('patient')
+            ->where('MEDREC_ID = ?')
+            ->setParameter(0, $id)
+            ->execute()->fetch();
+
+        $PatientDTO = $this::arrToDto($query);
+
+        return $PatientDTO;
+    }
+
+    public function update(User $user): bool
+    {
+
+    }
+
+    public function delete(int $id): bool
+    {
+
+    }
+
+    public function getAll(): ?array
+    {
+
+        $query = $this->connection->createQueryBuilder();
+
+        $query = $query
+            ->select('MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS NAME')
+            ->from('patient')
+            ->setMaxResults(40)
+            ->execute()->fetchAll();
+
+        $users = $this::mapPatientArray($query);
+
+        // $users = array();
+        // foreach ($query as $user) {
+        //     $PatientDTO = new PatientDTO();
+        //     $PatientDTO->ID = $user['ID'];
+        //     $PatientDTO->name = $user['NAME'];
+        //     $users[] = $PatientDTO;
+        // }
+
+        return $users;
     }
 
     // Prescibed greater than n times
-    public function prescribed_gt_n(int $n)
+    // public function prescribed_gt_n(int $n)
+    // {
+
+    //     $query = $this->connection->createQueryBuilder();
+
+    //     $this->query = $this->query
+    //         >select('DISTINCT p.MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS Name')
+    //         ->from('patient', 'p')
+    //         ->join('p', 'medication', 'm', 'p.MEDREC_ID = m.MEDREC_ID')
+    //         ->where('PRESCRIBED_COUNT > ?')
+    //         ->setParameter(0, $n)
+    //         ->setMaxResults(40)
+    //         ->execute()->fetchAll();
+    //     return $this;
+    // }
+
+    /**
+     * Maps a query to the user Patent
+     */
+    private static function mapPatientArray($userArrays): array
     {
-        $this->query = $this->query
-            ->join('p', 'medication', 'm', 'p.MEDREC_ID = m.MEDREC_ID')
-            ->where('PRESCRIBED_COUNT > ?')
-            ->setParameter(0, $n)
-            ->setMaxResults(40);
-        return $this;
+
+        $userDTOs = array_map(array('PatientDaoImpl', 'arrToDto'), $userArrays);
+        return $userDTOs;
     }
 
-    public function execute_query() {
-        return $this->query->execute()->fetchAll();
+    private static function arrToDto( $userArray): PatientDTO
+    {
+        $PatientDTO = new PatientDTO();
+        $PatientDTO->ID = $userArray['ID'];
+        $PatientDTO->name = $userArray['NAME'];
+        return $PatientDTO;
     }
+
 }

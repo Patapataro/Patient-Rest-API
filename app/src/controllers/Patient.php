@@ -11,6 +11,24 @@ class Patient {
         $this->PatientService = $this->container['PatientService'];
     }
 
+    public function getPatient($id) 
+    {
+        $patient = $this->PatientService->getPatient($id);
+        
+        header('Content-type: application/json');
+
+        echo $patient;
+    }
+
+    public function getPatients() 
+    {
+        $patients = $this->PatientService->getPatients();
+
+        header('Content-type: application/json');
+
+        echo $patients;
+    }
+
     /**
      * Calls PatientService and returns
      * the data as json to the client.

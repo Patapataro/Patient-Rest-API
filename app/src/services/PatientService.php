@@ -6,19 +6,33 @@
 
 namespace App\Services;
 
-use App\DAO\PatientDaoImpl;
+// use App\DAO\PatientDaoImpl;
+use App\DAO\PatientDAO;
 use App\DTO\PatientDTO;
 
 class PatientService {
 
-    private $PatientDaoImpl;
-    private $PatientDTO;
+    private $PatientDAO;
     
-    public function __construct(PatientDaoImpl $PatientDaoImpl, PatientDTO $PatientDTO) 
+    public function __construct(PatientDAO $PatientDAO) 
     {
-        $this->PatientDaoImpl = $PatientDaoImpl;
-        $this->PatientDTO = $PatientDTO;
+        $this->PatientDAO = $PatientDAO;
     }
+
+    public function getPatient($id)
+    {
+        $patient = $this->PatientDAO->read($id);
+        // var_dump($user);
+        return json_encode($patient);
+    }
+
+    public function getPatients()
+    {
+        $patients = $this->PatientDAO->getAll();
+        return json_encode($patients);
+    }
+
+
 
     /**
     * PatientDTO object is not used in this method, it will complicate the data on return.
@@ -26,14 +40,10 @@ class PatientService {
     * 
     * The mothod describes the data needed from the DAO
     */
-
-    public function patient_prescribed_count($count)
+    public function patient_prescribed_count($n)
     {
-        $users = $this->PatientDaoImpl
-                ->get_all_patients()
-                ->prescribed_gt_n($count)
-                ->execute_query();
-        return $users;
+        $patients = $this->PatientDAO->prescribed_gt_n($n);
+        return $patients;
     }
 
 }

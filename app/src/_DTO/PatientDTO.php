@@ -2,40 +2,44 @@
 namespace App\DTO;
 
 class PatientDTO {
-    private $name;
-    private $ID;
-    private $NDC;
+    public $name;
+    public $ID;
+    public $NDC;
 
-    // Name get and set
-    public function get_name(): string
-    {
-        return $this->name;
-    }
+    // private $name;
+    // private $ID;
+    // private $NDC;
 
-    public function set_name(string $name): void
-    {
-        $this->name = $name;
-    }
+    // // Name get and set
+    // public function getName(): string
+    // {
+    //     return $this->name;
+    // }
 
-    // ID get and set
-    public function get_id(): int
-    {
-        return $this->ID;
-    }
+    // public function setName(string $name): void
+    // {
+    //     $this->name = $name;
+    // }
 
-    public function set_id(int $ID): void
-    {
-        $this->ID = $ID;
-    }
+    // // ID get and set
+    // public function getId(): int
+    // {
+    //     return $this->ID;
+    // }
 
-    // NDC get and set
-    public function get_ndc(): string
-    {
-        return $this->NDC;
-    }
+    // public function setId(int $ID): void
+    // {
+    //     $this->ID = $ID;
+    // }
 
-    public function set_ndc(string $NDC): void
-    {
-        $this->NDC = $NDC;
-    }
+    // // NDC get and set
+    // public function getNDC(): string
+    // {
+    //     return $this->NDC;
+    // }
+
+    // public function setNDC(string $NDC): void
+    // {
+    //     $this->NDC = $NDC;
+    // }
 }
