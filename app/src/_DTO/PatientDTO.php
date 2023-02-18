@@ -4,7 +4,6 @@ namespace App\DTO;
 class PatientDTO {
     public $name;
     public $ID;
-    public $NDC;
 
     // private $name;
     // private $ID;

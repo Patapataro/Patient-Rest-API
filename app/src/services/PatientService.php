@@ -43,7 +43,7 @@ class PatientService {
     public function patient_prescribed_count($n)
     {
         $patients = $this->PatientDAO->prescribed_gt_n($n);
-        return $patients;
+        return json_encode($patients);
     }
 
 }

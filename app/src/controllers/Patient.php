@@ -14,7 +14,7 @@ class Patient {
     public function getPatient($id) 
     {
         $patient = $this->PatientService->getPatient($id);
-        
+
         header('Content-type: application/json');
 
         echo $patient;
@@ -39,7 +39,6 @@ class Patient {
 
         header('Content-type: application/json');
 
-        echo json_encode($users);
-
+        echo $users;
     }
 }
