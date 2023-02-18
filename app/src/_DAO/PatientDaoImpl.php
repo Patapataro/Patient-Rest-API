@@ -61,7 +61,7 @@ class PatientDaoImpl implements PatientDAO{
     }
 
     // Prescibed greater than n times
-    public function prescribed_gt_n(int $n)
+    public function prescribedGtN(int $n): ?array
     {
         $query = $this->connection->createQueryBuilder();
 
@@ -80,7 +80,7 @@ class PatientDaoImpl implements PatientDAO{
     }
 
     /**
-     * Maps a query to the user Patent
+     * Maps a patent arrays to array of patent DTO
      */
     private static function mapPatientArray($userArrays): array
     {
@@ -94,6 +94,9 @@ class PatientDaoImpl implements PatientDAO{
         return $userDTOs;
     }
 
+    /**
+     * Maps a single patient array to a patent DTO
+     */
     public static function arrToDto($userArray): PatientDTO
     {
         $PatientDTO = new PatientDTO();

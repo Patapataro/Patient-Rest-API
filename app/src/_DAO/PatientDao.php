@@ -17,10 +17,10 @@ interface PatientDao {
     public function getAll(): ?array;
 
 
-    // /**
-    //  * Return an array of PatientDTO.
-    //  * 
-    //  * @return array<PatientDTO>
-    //  */
-    // public function prescribed_gt_n(int $n): ?array;
+    /**
+     * Return an array of PatientDTO.
+     * 
+     * @return array<PatientDTO>
+     */
+    public function prescribedGtN(int $n): ?array;
 }

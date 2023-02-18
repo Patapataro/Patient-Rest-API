@@ -33,9 +33,9 @@ class Patient {
      * Calls PatientService and returns
      * the data as json to the client.
      */
-    public function patient_prescribed_count($count)
+    public function patientPrescribedCount($count)
     {
-        $users = $this->PatientService->patient_prescribed_count($count);
+        $users = $this->PatientService->patientPrescribedCount($count);
 
         header('Content-type: application/json');
 

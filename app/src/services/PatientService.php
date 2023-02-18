@@ -40,9 +40,9 @@ class PatientService {
     * 
     * The mothod describes the data needed from the DAO
     */
-    public function patient_prescribed_count($n)
+    public function patientPrescribedCount($n)
     {
-        $patients = $this->PatientDAO->prescribed_gt_n($n);
+        $patients = $this->PatientDAO->prescribedGtN($n);
         return json_encode($patients);
     }
 

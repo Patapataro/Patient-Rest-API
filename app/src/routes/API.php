@@ -5,7 +5,7 @@ use Bramus\Router\Router;
 use App\Controllers\Patient;
 
 
-class API {
+class Api {
     public function __construct(Router $router, $container)
     {
 
@@ -19,12 +19,9 @@ class API {
             $patient->getPatients();
         });
 
-        /**
-         * Passes the prescription count to the PatientController 
-         */
         $router->get('/prescribed/{n}', function($n) use ($container){
             $patient = $container['PatientController'];
-            $patients = $patient->patient_prescribed_count($n);
+            $patients = $patient->patientPrescribedCount($n);
         });
 
         // Run it!

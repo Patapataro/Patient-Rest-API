@@ -11,7 +11,7 @@ use Pimple\Container;
 use App\Database\DoctrineDBAl;
 
 use Bramus\Router\Router;
-use App\Routes\API;
+use App\Routes\Api;
 
 use App\DAO\PatientDaoImpl;
 use App\Services\PatientService;
@@ -29,7 +29,7 @@ class ContainerConfig {
 
         // DI for routes
         $container['router'] = fn($c) => new Router();
-        $container['routes'] = fn($c) => new API($c['router'], $c);
+        $container['routes'] = fn($c) => new Api($c['router'], $c);
 
         // DI for Patient
         $container['PatientDaoImpl'] = fn($c) => new PatientDaoImpl($c['database_connection']);
