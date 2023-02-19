@@ -33,9 +33,7 @@ class PatientDaoImpl implements PatientDAO
             ->setParameter(0, $id)
             ->execute()->fetch();
 
-        $PatientDTO = $this::arrToDto($query);
-
-        return $PatientDTO;
+        return $query;
     }
 
     public function update(User $user): bool
@@ -59,9 +57,7 @@ class PatientDaoImpl implements PatientDAO
             ->setMaxResults(40)
             ->execute()->fetchAll();
 
-        $users = $this::mapPatientArray($query);
-
-        return $users;
+        return $query;
     }
 
     // Prescibed greater than n times
@@ -78,34 +74,6 @@ class PatientDaoImpl implements PatientDAO
             ->setMaxResults(40)
             ->execute()->fetchAll();
 
-        $users = $this::mapPatientArray($query);
-
-        return $users;
-    }
-
-    /**
-     * Maps a patent arrays to array of patent DTO
-     */
-    private static function mapPatientArray($userArrays): array
-    {
-
-        $userDTOs = array_map(function($userArray) {
-            $PatientDTO = new PatientDTO();
-            $PatientDTO->ID = $userArray['ID'];
-            $PatientDTO->name = $userArray['NAME'];
-            return $PatientDTO;
-        }, $userArrays);
-        return $userDTOs;
-    }
-
-    /**
-     * Maps a single patient array to a patent DTO
-     */
-    public static function arrToDto($userArray): PatientDTO
-    {
-        $PatientDTO = new PatientDTO();
-        $PatientDTO->ID = $userArray['ID'];
-        $PatientDTO->name = $userArray['NAME'];
-        return $PatientDTO;
+        return $query;
     }
 }
