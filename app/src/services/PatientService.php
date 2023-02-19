@@ -22,18 +22,10 @@ class PatientService
         return $patientDTO;
     }
 
-    public function getPatients()
-    {
-        $patients = $this->PatientDAO->getAll();
-        $patientDTOs = $this::mapPatientArray($patients);
-
-        return $patientDTOs;
-    }
-
     public function patientPrescribedCount($n)
     {
-        $patients = $this->PatientDAO->prescribedGtN($n);
-        $patientDTOs = $this::mapPatientArray($patients);
+        $patients = $this->PatientDAO->getByPrescribedCount($n);
+        $patientDTOs = $this::getByPrescribedCount($patients);
 
         return $patientDTOs;
     }
