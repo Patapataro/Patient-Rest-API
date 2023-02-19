@@ -19,7 +19,7 @@ class PatientService
         $patient = $this->PatientDAO->read($id);
         $patientDTO = $this::arrToDto($patient);
 
-        return json_encode($patientDTO);
+        return $patientDTO;
     }
 
     public function getPatients()
@@ -27,7 +27,7 @@ class PatientService
         $patients = $this->PatientDAO->getAll();
         $patientDTOs = $this::mapPatientArray($patients);
 
-        return json_encode($patientDTOs);
+        return $patientDTOs;
     }
 
     public function patientPrescribedCount($n)
@@ -35,7 +35,7 @@ class PatientService
         $patients = $this->PatientDAO->prescribedGtN($n);
         $patientDTOs = $this::mapPatientArray($patients);
 
-        return json_encode($patientDTOs);
+        return $patientDTOs;
     }
        
     /**
