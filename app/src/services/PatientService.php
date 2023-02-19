@@ -25,7 +25,7 @@ class PatientService
     public function patientPrescribedCount($n)
     {
         $patients = $this->PatientDAO->getByPrescribedCount($n);
-        $patientDTOs = $this::getByPrescribedCount($patients);
+        $patientDTOs = $this::mapPatientArray($patients);
 
         return $patientDTOs;
     }
