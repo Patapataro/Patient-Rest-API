@@ -1,13 +1,15 @@
 <?php
+
 namespace App\Database;
 
 use Doctrine\DBAL\DriverManager;
 
-class DoctrineDBAl {
+class DoctrineDBAl 
+{
     private $connection;
 
-    public function __construct($db_driver, $db_host, $db_name, $username, $password) {
-
+    public function __construct($db_driver, $db_host, $db_name, $username, $password) 
+    {
         $connectionParams = [
             'dbname' => $db_name,
             'user' => $username,
@@ -19,8 +21,7 @@ class DoctrineDBAl {
         $this->connection = DriverManager::getConnection($connectionParams);
     }
 
-    public function get_connection(){
+    public function getConnection(){
         return $this->connection;
     }
-
 }

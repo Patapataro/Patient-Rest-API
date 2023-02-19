@@ -1,15 +1,19 @@
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
+
 namespace App\DAO;
 
 use App\DAO\PatientDao;
 use App\DTO\PatientDTO;
 use App\DAO\PatientDaoImpl;
 
-
-class PatientDaoImpl implements PatientDAO{
+class PatientDaoImpl implements PatientDAO
+{
     private $connection;
 
-    public function __construct($connection) {
+    public function __construct($connection) 
+    {
         $this->connection = $connection;
     }
 
@@ -104,5 +108,4 @@ class PatientDaoImpl implements PatientDAO{
         $PatientDTO->name = $userArray['NAME'];
         return $PatientDTO;
     }
-
 }

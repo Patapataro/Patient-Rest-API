@@ -1,7 +1,11 @@
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
+
 namespace App\DTO;
 
-class PatientDTO {
+class PatientDTO
+{
     public $name;
     public $ID;
 }

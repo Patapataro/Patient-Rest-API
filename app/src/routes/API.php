@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Routes;
+
 use Bramus\Router\Router;
 use App\Controllers\Patient;
 
-
-class Api {
+class Api 
+{
     public function __construct(Router $router, $container)
     {
-
         $router->get('/patients/{id}', function($id) use ($container){
             $patient = $container['PatientController'];
             $patient->getPatient($id);

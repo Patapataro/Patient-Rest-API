@@ -16,11 +16,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
-$container = ContainerConfig::create_container();
+$container = ContainerConfig::createContainer();
 
 //init routes
 $container["routes"];
-// new API($container);
-
-
-

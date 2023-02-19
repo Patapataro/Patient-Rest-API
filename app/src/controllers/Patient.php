@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Controllers;
 
-class Patient {
+class Patient 
+{
     private $container;
     private $PatientService;
 
@@ -14,18 +16,14 @@ class Patient {
     public function getPatient($id) 
     {
         $patient = $this->PatientService->getPatient($id);
-
         header('Content-type: application/json');
-
         echo $patient;
     }
 
     public function getPatients() 
     {
         $patients = $this->PatientService->getPatients();
-
         header('Content-type: application/json');
-
         echo $patients;
     }
 
@@ -36,9 +34,7 @@ class Patient {
     public function patientPrescribedCount($count)
     {
         $users = $this->PatientService->patientPrescribedCount($count);
-
         header('Content-type: application/json');
-
         echo $users;
     }
 }

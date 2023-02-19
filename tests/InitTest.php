@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
+
 namespace Test;
+
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
-
 use Pimple\Container;
 use App\Config\ContainerConfig;
-
 
 abstract class InitTest extends TestCase
 {

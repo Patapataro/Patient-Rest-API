@@ -1,9 +1,11 @@
 <?php
+
 namespace App\DAO;
 
 use App\DTO\PatientDTO;
 
-interface PatientDao {
+interface PatientDao 
+{
     public function create(PatientDTO $user);
     public function read(int $id): ?PatientDTO;
     public function update(User $user): bool;
@@ -15,7 +17,6 @@ interface PatientDao {
      * @return array<PatientDTO>
      */
     public function getAll(): ?array;
-
 
     /**
      * Return an array of PatientDTO.
