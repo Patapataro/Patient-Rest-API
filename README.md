@@ -56,7 +56,7 @@ subgraph Rest API
 		end
 	end
 
-	subgraph id5[Vendor]
+	subgraph Vendor
 		Router
 		container_vendor 
 		doctrin_vendor
