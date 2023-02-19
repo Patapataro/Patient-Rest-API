@@ -46,22 +46,8 @@ class PatientDaoImpl implements PatientDAO
 
     }
 
-    public function getAll(): ?array
-    {
-
-        $query = $this->connection->createQueryBuilder();
-
-        $query = $query
-            ->select('MEDREC_ID AS ID', 'CONCAT(FIRSTNAME, " ", LASTNAME) AS NAME')
-            ->from('patient')
-            ->setMaxResults(40)
-            ->execute()->fetchAll();
-
-        return $query;
-    }
-
     // Prescibed greater than n times
-    public function prescribedGtN(int $n): ?array
+    public function getByPrescribedCount(int $n): ?array
     {
         $query = $this->connection->createQueryBuilder();
 
