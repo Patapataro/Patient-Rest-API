@@ -56,7 +56,7 @@ subgraph Rest API
 		end
 	end
 
-	subgraph  Vendor
+	subgraph  id5[Vendor]
 		Router
 		container_vendor 
 		doctrin_vendor
@@ -68,8 +68,8 @@ subgraph Rest API
 	
 end
 	doctrin_vendor<--> id1[(Database)]
-	
-	style Vendor fill:#f58c8c
+
+	style id5 fill:#f58c8c
 	style id4 fill:#9cd2ff
 	style id3 fill:#a2f595
 ```
