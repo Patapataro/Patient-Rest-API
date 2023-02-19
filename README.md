@@ -70,6 +70,8 @@ end
 	doctrin_vendor<--> id1[(Database)]
 
 	style Vendor fill:#821d1d
+	style id4 fill:#1d2982
+	style id3 fill:#16702a
 
 ```
 	
