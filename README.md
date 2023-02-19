@@ -41,7 +41,7 @@ Class Structure
 ```mermaid
 flowchart  TD
 id2((Client)) --> |Client sends Request| index
-UserController --> |Exposes Endpoint| id2
+UserController --> id2
 
 subgraph Rest API
 	subgraph  id4[Container]
@@ -68,7 +68,10 @@ subgraph Rest API
 	
 end
 	doctrin_vendor<--> id1[(Database)]
-	style id3 fill:#0f9
+	
+	style Vendor fill:#f58c8c
+	style id4 fill:#9cd2ff
+	style id3 fill:#a2f595
 ```
 	
 ## Changes to the Database
@@ -130,9 +133,10 @@ DELETE n1
 	ON n1.id > n2.id
 	AND n1.MEDREC_ID = n2.MEDREC_ID
 	AND n1.NDC = n2.NDC;
-```
+``` 
 
 
 #### Diseas Table
   * Convert MEDREC_ID  to INT datat ype
   * Index MEDREC_ID
+
