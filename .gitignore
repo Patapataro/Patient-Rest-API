@@ -1,3 +1,4 @@
 .env
 vendor
 .phpunit.result.cache
+new_db.sql
