@@ -12,16 +12,9 @@ interface PatientDao
     public function delete(int $id): bool;
 
     /**
-     * Returns all users.
-     * 
-     * @return array<PatientDTO>
-     */
-    public function getAll(): ?array;
-
-    /**
      * Return an array of PatientDTO.
      * 
      * @return array<PatientDTO>
      */
-    public function prescribedGtN(int $n): ?array;
+    public function getByPrescribedCount(int $count): ?array;
 }
