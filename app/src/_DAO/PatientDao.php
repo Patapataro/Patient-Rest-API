@@ -6,15 +6,21 @@ use App\DTO\PatientDTO;
 
 interface PatientDao 
 {
-    public function create(PatientDTO $user);
-    public function read(int $id): ?PatientDTO;
-    public function update(User $user): bool;
-    public function delete(int $id): bool;
+    public function create(PatientDTO $patient): bool;
+    /**
+     * Returns a single Patient as an associative array
+     */
 
+    public function read(int $id): ?array;
+
+    public function update(PatientDTO $patient): bool;
+
+    public function delete(int $id): bool;
+    
     /**
      * Return an array of PatientDTO.
      * 
-     * @return array<PatientDTO>
+     * @return array
      */
     public function getByPrescribedCount(int $count): ?array;
 }

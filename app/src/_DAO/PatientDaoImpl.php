@@ -22,7 +22,7 @@ class PatientDaoImpl implements PatientDAO
 
     }
 
-    public function read(int $id): ?PatientDTO
+    public function read(int $id): ?array
     {
         $query = $this->connection->createQueryBuilder();
 
