@@ -69,8 +69,6 @@ subgraph Rest API
 end
 	doctrin_vendor<--> id1[(Database)]
 
-	style id4 fill:#9cd2ff
-	style id3 fill:#a2f595
 ```
 	
 ## Changes to the Database
