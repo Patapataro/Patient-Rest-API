@@ -16,6 +16,9 @@ class Patient
     public function getPatient($id) 
     {
         $patient = $this->PatientService->getPatient($id);
+        $patient = (object)[
+            'patient'
+        ];
         header('Content-type: application/json');
         echo json_encode($patient);
     }
@@ -26,8 +29,13 @@ class Patient
      */
     public function patientPrescribedCount($count)
     {
-        $users = $this->PatientService->patientPrescribedCount($count);
+        $patients = $this->PatientService->patientPrescribedCount($count);
+        $patients = (object)[
+            'patients'
+        ];
+
+    
         header('Content-type: application/json');
-        echo json_encode($users);
+        echo json_encode($patients);
     }
 }
